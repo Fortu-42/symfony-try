@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Services\helpers;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,28 +23,20 @@ class DefaultController extends Controller
         ]);
     }
 
+
+  /*  public function loginAction(Request $request){
+        $helpers = $this->get("app.helpers");
+    }*/
     
      public function pruebasAction(Request $request)
      {
+        $helpers = $this->get("helpers_jsons");
         $em =  $this->getDoctrine()->getManager();
         $users = $em->getRepository('BackendBundle:User')->findAll();
         
-        return $this->json($users);
+        return $this->jsons($users);
 
      }
 
-     public function json($data){
-        $normalizers = array(new ObjectNormalizer());
-        $encoders = array(new JsonEncoder());
-        $serializer = new Serializer($normalizers, $encoders);
-        $json = $serializer->serialize($data, 'json');
-
-        $response = new Response(
-            $response->setContent($json),
-            Response::HTTP_OK,
-            array('content-type' => 'appplication/json')
-        );
-           
-        return $response;
-    }
+    
 }
