@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\symfony",
+    "\\symfony\\src",
+    "\\symfony\\src\\AppBundle",
+    "\\symfony\\src\\AppBundle\\Controller"
+  ],
+  "SelectedNode": "\\symfony\\src\\AppBundle\\Controller\\DefaultController.php",
+  "PreviewInSolutionExplorer": false
+}
